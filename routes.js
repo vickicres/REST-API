@@ -85,7 +85,7 @@ router.get('/users', authenticateUser, asyncHandler(async(req, res) => {
   if (user) {
     res.status(200).json(user);
   } else {
-    res.status(400).json();
+    res.status(400).json({ message: 'User not found!' });
   }
 }));
 
@@ -152,7 +152,7 @@ router.get('/courses/:id', asyncHandler(async(req, res) => {
   if (course) {
     res.json(course);
   } else {
-    res.status(404).json();
+    res.status(404).json({ message: "Course not found." });
   }
 }));
 

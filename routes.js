@@ -85,7 +85,7 @@ router.get('/users', authenticateUser, asyncHandler(async(req, res) => {
   if (user) {
     res.status(200).json(user);
   } else {
-    res.status(400).json({ message: 'User not found!' });
+    res.status(400).json();
   }
 }));
 

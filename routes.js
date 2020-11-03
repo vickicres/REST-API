@@ -152,7 +152,7 @@ router.get('/courses/:id', asyncHandler(async(req, res) => {
   if (course) {
     res.json(course);
   } else {
-    res.status(404).json({ message: "Course not found." });
+    res.status(404).json();
   }
 }));
 

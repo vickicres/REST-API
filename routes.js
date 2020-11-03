@@ -209,16 +209,12 @@ router.put('/courses/:id', authenticateUser,  [
 router.delete('/courses/:id', authenticateUser, asyncHandler(async(req, res) => {
   const authenticatedUser = req.currentUser;
   const course = await Course.findByPk(req.params.id);
-  if (course) {
     if (authenticatedUser.id === course.userId) {
       await course.destroy();
       res.status(204).end();
     } else {
-      res.status(403).json({ message: "You don't have premission to deleted this course." });
+      res.status(403).end();
     } 
-  } else {
-      res.status(400).json();
-  }
 }));
 
 module.exports = router;
